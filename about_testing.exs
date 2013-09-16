@@ -1,34 +1,35 @@
-ExUnit.start
-unless Process.whereis(ExUnit.Server) do
-    raise "Meditate: ExUnit must be started before writing your test case"
-# Diving Deeper: comment the line above and move your ExUnit start at the end of the file
-end
+
+unless Koans.exUnit_started? do Koans.meditate "you should start a ExUnit server to automatically run your test case" end
 
 defmodule About_testing do
-    use ExUnit.Case, async: true
-    unless ExUnit.Case in __ENV__.requires do
-        raise "Meditate: you must declare that your module use ExUnit test case"
-    end
+    use Koans
 
-    defmacro __? do
-        quote do: raise "Please fill value"
-    end
+    unless exUnit_Case_used? do meditate "your module shall use ExUnit.Case" end
 
-    # We shall contemplate truth by testing reality, via asserts."
-    def test_the_truth _ do
+    test "We shall contemplate truth by testing reality, via asserts." do
         assert __?
     end
 
-    # Enlightenment may be more easily achieved with appropriate messages.
-    def test_the_truth_with_message _ do
+    test "When reality lie, we shall refute truth" do
+        refute __?
+    end
+
+    test "Enlightenment may be more easily achieved with appropriate messages." do
         assert __?, "This should be true -- Please fix this"
     end
 
-    def test_assert_equality _ do
+    test "To understand reality, we must compare our expectations against reality." do
         expected_value = __?
         actual_value = 1 + 1
 
         assert expected_value == actual_value
+    end
+
+    test "Some ways of asserting equality are better than others, or not" do
+        expected_value = 2
+        actual_value = 1 + 1
+
+        __? expected_value, actual_value
     end
 end
 

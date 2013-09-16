@@ -6,46 +6,63 @@ defexception Koans.MeditateWarning, content: "" do
         IO.ANSI.escape("%{magenta, bright}Please meditate: %{blue}#{warning.content}", true)
     end
 end
-
 defmodule Koans do
     @doc false
     defmacro __using__([]) do
         quote do
-            import Koans, only: [__?: 0, __?: 2, exUnit_started?: 0, exUnit_Case_used?: 0, meditate: 1]
-            def assert_equal actual, expected do
-                meditate "ExUnit don't provide assert_equal, you may implement it"
-            end
-            def assert_equals actual, expected do
-                assert_equal actual, expected
-            end
-            defoverridable [assert_equal: 2, assert_equals: 2]
+            import Koans, only: [__?: 0, __?: 2, meditate: 1]
         end
     end
 
-    defmacro __? do
+    defmacro __?(_ // nil, _ // nil) do
         quote do
             raise Koans.NotFilledValueError
-        end
-    end
-
-    defmacro __?(_, _) do
-        quote do
-            raise Koans.NotFilledValueError
-        end
-    end
-
-
-    defmacro exUnit_Case_used? do
-        quote do
-            ExUnit.Case in __ENV__.requires
         end
     end
 
     def meditate(message) do
         raise Koans.MeditateWarning, content: message
     end
+end
+
+defmodule Koans.About_testing do
+    @doc false
+    defmacro __using__([]) do
+        quote do
+            use Koans
+            unless Koans.About_testing.exUnit_Case_used? __ENV__ do
+                meditate "your module should use ExUnit.Case instead FakeUnit.Case"
+            end
+            def assert_equal actual, expected do
+                meditate "ExUnit don't implement assert_equal, we may implement our"
+            end
+            defoverridable [assert_equal: 2]
+        end
+    end
+
+    def exUnit_Case_used? env do
+        ExUnit.Case in env.requires
+    end
 
     def exUnit_started? do
         Process.whereis(ExUnit.Server)
+    end
+
+end
+
+defmodule FakeUnit.Case do
+    @doc false
+    defmacro __using__([]) do
+        quote do
+            import FakeUnit.Case
+        end
+    end
+    def test(message, var) do
+    end
+    def assert expected do
+    end
+    def assert expected, message do
+    end
+    def refute expected do
     end
 end

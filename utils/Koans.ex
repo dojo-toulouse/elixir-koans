@@ -10,7 +10,7 @@ defmodule Koans do
     @doc false
     defmacro __using__([]) do
         quote do
-            import Koans, only: [__?: 0, __?: 2, meditate: 1]
+            import Koans, only: [__?: 0, __?: 1, __?: 2, meditate: 1]
         end
     end
 

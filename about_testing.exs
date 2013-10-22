@@ -1,8 +1,8 @@
-ExUnit.start
+
 Koans.About_testing.start_exUnit!
 
 defmodule About_testing do
-    use ExUnit.Case
+    use FakeUnit.Case
     use Koans.About_testing
 
     test "We shall contemplate truth by testing reality, via asserts." do

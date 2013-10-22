@@ -31,7 +31,7 @@ defmodule About_Lists do
 
     test "Truncate operator do nothing when element not in list" do
         a_list = [:foo, :bar]
-        __? a_list -- [:baz] == [:foo, :bar]
+        assert_? a_list -- [:baz] == [:foo, :bar]
     end
 
 

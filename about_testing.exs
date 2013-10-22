@@ -25,7 +25,7 @@ defmodule About_testing do
     end
 
     test "Some ways of asserting equality are better than others, or not" do
-        __? 2, 2
+        assert_? 2, 2
     end
 
     test "Assertions are smart" do

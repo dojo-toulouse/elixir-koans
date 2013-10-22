@@ -10,15 +10,15 @@ defmodule About_Numbers_and_booleans do
 
         assert is_integer(an_integer)
 
-        __? is_float(a_float)
+        assert_? is_float(a_float)
 
-        __? is_float(an_integer)
+        assert_? is_float(an_integer)
 
-        __? is_integer(a_float)
+        assert_? is_integer(a_float)
     end
 
     test "Is an hexadecimal number treated as an integer" do
-        __? is_integer(0x2A)
+        assert_? is_integer(0x2A)
     end
 
     test "Answer to the Ultimate Question of Life, the Universe, and Everything" do
@@ -28,8 +28,8 @@ defmodule About_Numbers_and_booleans do
     end
 
     test "Are booleans integers ?" do
-        __? is_integer(true)
-        __? is_boolean(0)
+        assert_? is_integer(true)
+        assert_? is_boolean(0)
     end
 
     test "Booleans are atoms" do

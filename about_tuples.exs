@@ -1,58 +1,21 @@
 ExUnit.start
 
-defmodule About_Numbers_and_booleans do
-    use ExUnit.Case
-    use Koans
-
-    test "Basics numbers types" do
-        an_integer = __?
-        a_float = 42.0
-
-        assert is_integer(an_integer)
-
-        __? is_float(a_float)
-
-        __? is_float(an_integer)
-
-        __? is_integer(a_float)
-    end
-
-    test "Is an hexadecimal number treated as an integer" do
-        __? is_integer(0x2A)
-    end
-
-    test "Answer to the Ultimate Question of Life, the Universe, and Everything" do
-        an_hex = 0x20
-        a_dec = 10
-        assert an_hex + a_dec == __?
-    end
-
-    test "Are booleans integers ?" do
-        __? is_integer(true)
-        __? is_boolean(0)
-    end
-
-    test "Booleans are atoms" do
-        assert is_atom(true)
-        assert :true == __?
-    end
-end
-
 defmodule About_Tuples do
     use ExUnit.Case
     use Koans
 
-    test "Tuples" do
+    test "Getting tuples size is a kernel feature" do
         a_tuple = {:foo, :bar}
         assert size(a_tuple) == __?
     end
 
-    test "Can access to tuple element" do
+    test "Can reach tuple element with index" do
         a_tuple = {:foo, :bar}
         assert elem(a_tuple, 0) == __?
     end
 
     defmacrop erlang_elem(tuple, index) do
+        # Note: Elixir provides access to erlang primitives with atom :erlang
         quote do: :erlang.element(unquote(index), unquote(tuple))
     end
 
@@ -65,7 +28,7 @@ defmodule About_Tuples do
     test "Can set a tuple element" do
         a_tuple = {:foo, :bar}
         baz_tuple = set_elem(a_tuple, 0, :baz)
-        # think about immutability
+        # Note: think about immutability
         assert elem(a_tuple, 0) == __?
         assert elem(baz_tuple, 0) == __?
     end
@@ -89,10 +52,10 @@ defmodule About_Tuples do
     end
 
     test "The building blocks of Elixir are tuples of three elements" do
+        # Note: quote gives the representation of a block
         quoted_block = quote do
-            a = 1
-            b = 2
-            c = size({a, b}) + 1
+            a = 1 + 2
+            assert a == 3
         end
 
         assert is_tuple(quoted_block)
@@ -100,13 +63,15 @@ defmodule About_Tuples do
     end
 
     test "We can use tuples to define blocks" do
-        unquoted_tuple = unquote {:"{}", [], [1,2,3]}
+        # Note: unquote is the reverse of quote
+        # It gives a block from its representation
+        unquoted_block = unquote {:"{}", [], [1, 2, 3]}
         # Note: it's an hungarian notation
         # the atom :"{}" represent the function
         # the list [] contains metadatas like the line and module where code is defined
         # the list [1, 2, 3] are arguments passed to the function
         # For more infos see Macros and quote/unquote functions
-        assert unquoted_tuple == __?
+        assert unquoted_block == __?
     end
 
     test "Are tuples enumerables ?" do

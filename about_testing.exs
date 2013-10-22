@@ -1,5 +1,5 @@
 
-unless Koans.About_testing.exUnit_started? do Koans.meditate "you should start a ExUnit server to automatically run your test case" end
+Koans.About_testing.start_exUnit!
 
 defmodule About_testing do
     use FakeUnit.Case

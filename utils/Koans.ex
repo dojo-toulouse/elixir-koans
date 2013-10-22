@@ -44,6 +44,12 @@ defmodule Koans.About_testing do
         ExUnit.Case in env.requires
     end
 
+    def start_exUnit! do
+        unless Koans.About_testing.exUnit_started? do
+            Koans.meditate "you should start a ExUnit server to automatically run your test case"
+        end
+    end
+
     def exUnit_started? do
         Process.whereis(ExUnit.Server)
     end

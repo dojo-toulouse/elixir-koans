@@ -1,8 +1,8 @@
-
+ExUnit.start
 Koans.About_testing.start_exUnit!
 
 defmodule About_testing do
-    use FakeUnit.Case
+    use ExUnit.Case
     use Koans.About_testing
 
     test "We shall contemplate truth by testing reality, via asserts." do
@@ -26,6 +26,25 @@ defmodule About_testing do
 
     test "Some ways of asserting equality are better than others, or not" do
         __? 2, 2
+    end
+
+    test "Assertions are smart" do
+        try do
+            assert 1 == 2
+        rescue
+            equal_error in [ExUnit.ExpectationError] ->
+                expected_operator = __?
+                assert equal_error.message == "Expected 1 to be #{expected_operator} 2"
+        end
+
+        try do
+            assert 1 > 2
+        rescue
+            greater_error in [ExUnit.ExpectationError] ->
+                expected_operator = __?
+                assert greater_error.message == "Expected 1 to be #{expected_operator} 2"
+        end
+
     end
 end
 

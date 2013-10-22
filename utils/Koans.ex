@@ -34,7 +34,7 @@ defmodule Koans.About_testing do
                 meditate "your module should use ExUnit.Case instead FakeUnit.Case"
             end
             def assert_equal actual, expected do
-                meditate "ExUnit don't implement assert_equal, we may implement our"
+                meditate "ExUnit don't implement assert_equal, because assert is smart"
             end
             defoverridable [assert_equal: 2]
         end

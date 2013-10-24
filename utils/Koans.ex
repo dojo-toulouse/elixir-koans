@@ -39,8 +39,11 @@ defmodule Koans.About_testing do
     defmacro __using__([]) do
         quote do
             use Koans
-            unless About_testing.exUnit_Case_used? __ENV__ do
+            unless Koans.About_testing.exUnit_Case_used? __ENV__ do
                 meditate "your module should use ExUnit.Case instead FakeUnit.Case"
+            end
+            def assert_raise_expect_error message, func do
+                assert_raise ExUnit.ExpectationError, message, func
             end
         end
     end

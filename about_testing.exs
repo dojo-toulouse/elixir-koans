@@ -24,10 +24,6 @@ defmodule About_testing do
         assert expected_value == actual_value
     end
 
-    test "Some ways of asserting equality are better than others, or not" do
-        assert_? 2, 2
-    end
-
     test "Assertions are smart" do
         is_1_equal_2? = fn -> assert 1 == 2 end
         is_1_greater_than_2? = fn -> assert 1 > 2 end

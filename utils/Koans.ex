@@ -8,6 +8,7 @@ defexception Koans.MeditateWarning, content: "" do
         IO.ANSI.escape("%{magenta, bright}Please meditate: %{blue}#{warning.content}", true)
     end
 end
+
 defmodule Koans do
     @doc false
     defmacro __using__([]) do
@@ -38,13 +39,9 @@ defmodule Koans.About_testing do
     defmacro __using__([]) do
         quote do
             use Koans
-            unless Koans.About_testing.exUnit_Case_used? __ENV__ do
+            unless About_testing.exUnit_Case_used? __ENV__ do
                 meditate "your module should use ExUnit.Case instead FakeUnit.Case"
             end
-            def assert_equal actual, expected do
-                meditate "ExUnit don't implement assert_equal, because assert is smart"
-            end
-            defoverridable [assert_equal: 2]
         end
     end
 
@@ -71,12 +68,12 @@ defmodule FakeUnit.Case do
             import FakeUnit.Case
         end
     end
-    def test(message, var) do
+    def test(_, _) do
     end
-    def assert expected do
+    def assert _ do
     end
-    def assert expected, message do
+    def assert _, _ do
     end
-    def refute expected do
+    def refute _ do
     end
 end

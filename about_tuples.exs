@@ -4,12 +4,12 @@ defmodule About_Tuples do
     use ExUnit.Case
     use Koans
 
-    test "Getting tuples size is a kernel feature" do
+    think "Getting tuples size is a kernel feature" do
         a_tuple = {:foo, :bar}
         assert size(a_tuple) == __?
     end
 
-    test "Can reach tuple element with index" do
+    think "Can reach tuple element with index" do
         a_tuple = {:foo, :bar}
         assert elem(a_tuple, 0) == __?
     end
@@ -19,13 +19,13 @@ defmodule About_Tuples do
         quote do: :erlang.element(unquote(index), unquote(tuple))
     end
 
-    test "In erlang tuples and lists start at index 1, wich is different in elixir" do
+    think "In erlang tuples and lists start at index 1, wich is different in elixir" do
         a_tuple = {:foo, :bar}
         foo_index = 0
         assert elem(a_tuple, foo_index) == erlang_elem(a_tuple, foo_index + __?)
     end
 
-    test "Can set a tuple element" do
+    think "Can set a tuple element" do
         a_tuple = {:foo, :bar}
         baz_tuple = set_elem(a_tuple, 0, :baz)
         # Note: think about immutability
@@ -33,25 +33,25 @@ defmodule About_Tuples do
         assert elem(baz_tuple, 0) == __?
     end
 
-    test "Setting a tuple element that not exists raise an argument error" do
+    think "Setting a tuple element that not exists raise an argument error" do
         a_tuple = {:foo, :bar}
 
         assert_raise ArgumentError, fn -> set_elem(a_tuple, __?, :baz) end
     end
 
-    test "Can insert a tuple element" do
+    think "Can insert a tuple element" do
         a_tuple = {:foo, :bar}
         baz_tuple = insert_elem(a_tuple, 2, :baz)
         assert elem(baz_tuple, 2) == __?
     end
 
-    test "Inserting a tuple element raise an argument error if index is invalid" do
+    think "Inserting a tuple element raise an argument error if index is invalid" do
         a_tuple = {:foo, :bar}
 
         assert_raise ArgumentError, fn -> insert_elem(a_tuple, __?, :baz) end
     end
 
-    test "The building blocks of Elixir are tuples of three elements" do
+    think "The building blocks of Elixir are tuples of three elements" do
         # Note: quote gives the representation of a block
         quoted_block = quote do
             a = 1 + 2
@@ -62,7 +62,7 @@ defmodule About_Tuples do
         assert size(quoted_block) == __?
     end
 
-    test "We can use tuples to define blocks" do
+    think "We can use tuples to define blocks" do
         # Note: unquote is the reverse of quote
         # It gives a block from its representation
         unquoted_block = unquote {:"{}", [], [1, 2, 3]}
@@ -74,7 +74,7 @@ defmodule About_Tuples do
         assert unquoted_block == __?
     end
 
-    test "Are tuples enumerables ?" do
+    think "Are tuples enumerables ?" do
         invalid_argument   = ArgumentError
         undefined_protocol = Protocol.UndefinedError
 

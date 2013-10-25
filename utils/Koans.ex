@@ -42,9 +42,6 @@ defmodule Koans.About_testing do
             unless Koans.About_testing.exUnit_Case_used? __ENV__ do
                 meditate "your module should use ExUnit.Case instead FakeUnit.Case"
             end
-            def assert_raise_expect_error message, func do
-                assert_raise ExUnit.ExpectationError, message, func
-            end
         end
     end
 
@@ -78,5 +75,7 @@ defmodule FakeUnit.Case do
     def assert _, _ do
     end
     def refute _ do
+    end
+    def assert_raise _, _, _ do
     end
 end

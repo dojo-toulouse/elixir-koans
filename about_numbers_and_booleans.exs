@@ -27,6 +27,11 @@ defmodule About_Numbers_and_booleans do
         assert an_hex + a_dec == __?
     end
 
+    think "You can use _ as separator in integer" do
+        an_integer = 100_000_000
+        assert_? is_integer(an_integer)
+    end
+
     think "Are booleans integers ?" do
         assert_? is_integer(true)
         assert_? is_boolean(0)
@@ -36,4 +41,23 @@ defmodule About_Numbers_and_booleans do
         assert_? is_atom(true)
         assert :true == __?
     end
+
+    think "That's true if a_boolean is true ortherwise b_boolean" do
+        a_boolean = false
+        b_boolean = true
+        assert_? a_boolean or b_boolean
+    end
+
+    think "Operator || is a relaxed boolean operator, that's true if a_variable or b_variable isn't nil" do
+        a_variable = 42
+        b_variable = nil
+        assert_? a_variable || b_variable
+    end
+
+    think "Operator && is a relaxed boolean operator, that's true if a_variable and b_variable isn't nil" do
+        a_variable = 42
+        b_variable = 5.0
+        assert_? a_variable && b_variable
+    end
+
 end

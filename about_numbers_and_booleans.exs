@@ -32,6 +32,36 @@ defmodule About_Numbers_and_booleans do
         assert_? is_integer(an_integer)
     end
 
+    think "Value equality operator has an usual expectation" do
+        an_integer = 4
+        a_float = 4.0
+        assert_? an_integer == a_float
+    end
+
+    think "Value inequality operator has an usual expectation" do
+        an_integer = 4
+        a_float = 2.0
+        assert_? an_integer != a_float
+    end
+
+    think "Strict equality operator take care about types" do
+        an_integer = 4
+        a_float = 4.0
+        assert_? an_integer === a_float
+    end
+
+    think "Strict inequality operator take care about types" do
+        an_integer = 4
+        a_float = 4.0
+        assert_? an_integer !== a_float
+    end
+
+    think "Comparing two values considering type" do
+        an_integer = 4.0
+        a_float = 4.0
+        assert_? an_integer === a_float
+    end
+
     think "Are booleans integers ?" do
         assert_? is_integer(true)
         assert_? is_boolean(0)

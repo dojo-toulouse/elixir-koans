@@ -5,7 +5,7 @@ Install
 -------
 
 ```bash
-  $ git clone git@github.com:apieum/elixir-koans.git
+  $ git clone git@github.com:dojo-toulouse/elixir-koans.git
   $ cd elixir-koans
 ```
 

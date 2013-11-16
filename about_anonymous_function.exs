@@ -16,6 +16,12 @@ defmodule About_Anonymous_Functions do
         assert a_variable.("John") == __?
     end
 
+    think "Existing a short cut to declare anonymous function" do
+        a_variable = &("Hello #{&1} !" )
+
+       assert a_variable.("John") == __?
+    end
+
     think "Anonymous function with multiple implementation body ! Amazing matching power !" do
         a_variable = fn
                        ( "first body" ) -> "Running body 1"
@@ -34,6 +40,15 @@ defmodule About_Anonymous_Functions do
 
         assert a_variable.("I want an integer") == __?
         assert a_variable.( "I want a float") == __?
+    end
+
+
+    think "It's possible to pass a function in argument of function !" do
+      add_five_function = fn( value ) -> 5 + value end
+      add_ten_after_call_add_five_function = fn( function, value ) -> function.(value) + 10 end
+
+      assert add_ten_after_call_add_five_function.( add_five_function, 5 ) == __?
+
     end
 
 end

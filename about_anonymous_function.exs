@@ -22,17 +22,17 @@ defmodule About_Anonymous_Functions do
                        ( "second body") -> "Running body 2"
                      end
 
-        assert_? a_variable.("first body") == "Running body 1"
-        assert a_variable.( "second body") == __?
+        assert a_variable.("first body")  == __?
+        assert a_variable.("second body") == __?
     end
 
     think "Another anonymous function with multiple implementation body" do
         a_variable = fn
-                       ( "I want a integer" ) -> 42
+                       ( "I want an integer" ) -> 42
                        ( "I want a float") -> 1.9
                      end
 
-        assert a_variable.("I want a integer") == __?
+        assert a_variable.("I want an integer") == __?
         assert a_variable.( "I want a float") == __?
     end
 

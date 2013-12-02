@@ -19,5 +19,10 @@ Launch
 -------
 
 ```bash
+  $ elixir path_to_enlightenment.exs
+```
+
+To medidate on a single theme, run:
+```bash
   $ elixir about_*.exs
 ```

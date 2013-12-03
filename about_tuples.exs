@@ -41,14 +41,13 @@ defmodule About_Tuples do
 
     think "Can insert a tuple element" do
         a_tuple = {:foo, :bar}
-        baz_tuple = insert_elem(a_tuple, 2, :baz)
+        baz_tuple = Tuple.insert_at(a_tuple, 2, :baz)
         assert elem(baz_tuple, 2) == __?
     end
 
     think "Inserting a tuple element raise an argument error if index is invalid" do
         a_tuple = {:foo, :bar}
-
-        assert_raise ArgumentError, fn -> insert_elem(a_tuple, __?, :baz) end
+        assert_raise ArgumentError, fn -> Tuple.insert_at(a_tuple, __?, :baz) end
     end
 
     think "The building blocks of Elixir are tuples of three elements" do

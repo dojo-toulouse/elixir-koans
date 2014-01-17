@@ -1,3 +1,4 @@
+#!/usr/bin/env elixir
 
 Koans.About_testing.start_exUnit!
 

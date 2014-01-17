@@ -1,3 +1,5 @@
+#!/usr/bin/env elixir
+
 ExUnit.start
 
 defmodule About_Numbers_and_booleans do

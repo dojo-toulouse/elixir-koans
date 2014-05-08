@@ -13,13 +13,13 @@ defmodule Koans do
         end
     end
 
-    defmacro __?(_ // nil, _ // nil) do
+    defmacro __?(_ \\ nil, _ \\ nil) do
         quote do
             meditate @current_meditation
         end
     end
 
-    defmacro assert_?(_ // nil, _ // nil) do
+    defmacro assert_?(_ \\ nil, _ \\ nil) do
         quote do
             meditate @current_meditation <> IO.ANSI.escape("%{red} (fill with an assertion)")
         end
@@ -29,7 +29,7 @@ defmodule Koans do
         raise Koans.MeditateWarning, content: message
     end
 
-    defmacro think(message, var // quote(do: _), contents) do
+    defmacro think(message, var \\ quote(do: _), contents) do
         quote do
             Module.put_attribute(__MODULE__, :current_meditation, unquote(message))
             unquote contents

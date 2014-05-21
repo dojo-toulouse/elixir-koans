@@ -21,7 +21,7 @@ defmodule About_Tuples do
         quote do: :erlang.element(unquote(index), unquote(tuple))
     end
 
-    think "In erlang tuples and lists start at index 1, wich is different in elixir" do
+    test "In erlang tuples and lists start at index 1, wich is different in elixir" do
         a_tuple = {:foo, :bar}
         foo_index = 0
         assert elem(a_tuple, foo_index) == erlang_elem(a_tuple, foo_index + __?)
@@ -43,14 +43,13 @@ defmodule About_Tuples do
 
     think "Can insert a tuple element" do
         a_tuple = {:foo, :bar}
-        baz_tuple = insert_elem(a_tuple, 2, :baz)
+        baz_tuple = Tuple.insert_at(a_tuple, 2, :baz)
         assert elem(baz_tuple, 2) == __?
     end
 
     think "Inserting a tuple element raise an argument error if index is invalid" do
         a_tuple = {:foo, :bar}
-
-        assert_raise ArgumentError, fn -> insert_elem(a_tuple, __?, :baz) end
+        assert_raise ArgumentError, fn -> Tuple.insert_at(a_tuple, __?, :baz) end
     end
 
     think "The building blocks of Elixir are tuples of three elements" do
@@ -64,7 +63,7 @@ defmodule About_Tuples do
         assert size(quoted_block) == __?
     end
 
-    think "We can use tuples to define blocks" do
+    test "We can use tuples to define blocks" do
         # Note: unquote is the reverse of quote
         # It gives a block from its representation
         unquoted_block = unquote {:"{}", [], [1, 2, 3]}

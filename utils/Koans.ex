@@ -1,7 +1,8 @@
-
-defexception Koans.MeditateWarning, content: "" do
-    def message(warning) do
-        IO.ANSI.escape("%{magenta, bright}Please meditate: %{blue}#{warning.content}", true)
+defmodule Koans.MeditateWarning do
+    defexception [:message]
+    def message(exception) do
+        formated_message = IO.ANSI.format([:magenta, :bright, 'Please meditate: ', :blue, exception.message])
+        "#{formated_message}"
     end
 end
 
@@ -21,12 +22,12 @@ defmodule Koans do
 
     defmacro assert_?(_ \\ nil, _ \\ nil) do
         quote do
-            meditate @current_meditation <> IO.ANSI.escape("%{red} (fill with an assertion)")
+            meditate @current_meditation <> IO.ANSI.format([:red, " (fill with an assertion)"])
         end
     end
 
-    def meditate(message) do
-        raise Koans.MeditateWarning, content: message
+    def meditate(subject) do
+        raise Koans.MeditateWarning, message: subject
     end
 
     defmacro think(message, var \\ quote(do: _), contents) do

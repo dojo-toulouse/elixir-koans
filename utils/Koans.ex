@@ -22,7 +22,7 @@ defmodule Koans do
 
     defmacro assert_?(_ \\ nil, _ \\ nil) do
         quote do
-            meditate @current_meditation <> IO.ANSI.format([:red, " (fill with an assertion)"])
+            meditate @current_meditation <> "#{IO.ANSI.format([:red, ' (fill with an assertion)'])}"
         end
     end
 

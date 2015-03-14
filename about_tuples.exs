@@ -8,7 +8,7 @@ defmodule About_Tuples do
 
     think "Getting tuples size is a kernel feature" do
         a_tuple = {:foo, :bar}
-        assert size(a_tuple) == __?
+        assert tuple_size(a_tuple) == __?
     end
 
     think "Can reach tuple element with index" do
@@ -60,7 +60,7 @@ defmodule About_Tuples do
         end
 
         assert is_tuple(quoted_block)
-        assert size(quoted_block) == __?
+        assert tuple_size(quoted_block) == __?
     end
 
     test "We can use tuples to define blocks" do

@@ -29,7 +29,7 @@ defmodule About_Tuples do
 
     think "Can set a tuple element" do
         a_tuple = {:foo, :bar}
-        baz_tuple = set_elem(a_tuple, 0, :baz)
+        baz_tuple = put_elem(a_tuple, 0, :baz)
         # Note: think about immutability
         assert elem(a_tuple, 0) == __?
         assert elem(baz_tuple, 0) == __?
@@ -38,7 +38,7 @@ defmodule About_Tuples do
     think "Setting a tuple element that not exists raise an argument error" do
         a_tuple = {:foo, :bar}
 
-        assert_raise ArgumentError, fn -> set_elem(a_tuple, __?, :baz) end
+        assert_raise ArgumentError, fn -> put_elem(a_tuple, __?, :baz) end
     end
 
     think "Can insert a tuple element" do

@@ -29,11 +29,11 @@ defmodule About_testing do
         is_1_equal_2? = fn -> assert 1 == 2 end
         is_1_greater_than_2? = fn -> assert 1 > 2 end
 
-        message = "Expected 1 to be " <> __? <> " 2"
-        assert_raise ExUnit.ExpectationError, message, is_1_equal_2?
+        message = "Assertion with " <> __? <> " failed"
+        assert_raise ExUnit.AssertionError, message, is_1_equal_2?
 
-        message = "Expected 1 to be " <> __? <> " 2"
-        assert_raise ExUnit.ExpectationError, message, is_1_greater_than_2?
+        message = "Assertion with " <> __? <> " failed"
+        assert_raise ExUnit.AssertionError, message, is_1_greater_than_2?
     end
 end
 

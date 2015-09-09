@@ -11,7 +11,7 @@ defmodule About_Lists do
         assert is_list(a_list)
     end
 
-    think "Getting list lenght is a kernel feature" do
+    think "Getting list length is a kernel feature" do
         a_list = [1, 2, 3]
         assert length(a_list) == __?
     end

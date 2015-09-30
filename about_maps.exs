@@ -12,6 +12,11 @@ defmodule About_Maps do
     assert map[:likes] == __?
   end
 
+  think "keys can be more than atoms" do
+    map = %{"name" => "Ryan"}
+    assert map["name"] == __?
+  end
+
   think "there is more than one way to access a map" do
     map = %{name: "Ryan", age: 27}
     assert Map.get(map, :name) == __?

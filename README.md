@@ -18,6 +18,8 @@ Compile
 Launch
 -------
 
+**You can safely ignore warnings**
+
 ```bash
   $ elixir path_to_enlightenment.exs
 ```

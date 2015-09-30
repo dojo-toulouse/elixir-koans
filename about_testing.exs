@@ -11,7 +11,7 @@ defmodule About_testing do
         assert __?
     end
 
-    think "When reality lie, we shall refute truth" do
+    think "When reality lies, we shall refute truth" do
         refute __?
     end
 

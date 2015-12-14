@@ -1,5 +1,6 @@
 elixir-koans
 ============
+Discover elixir lang by replacing "__?" and "assert_?" to make tests pass.
 
 Install
 -------

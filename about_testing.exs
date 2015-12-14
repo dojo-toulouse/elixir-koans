@@ -1,5 +1,6 @@
 #!/usr/bin/env elixir
 
+# This should be replaced with the correct code to start the ExUnit server
 Koans.About_testing.start_exUnit!
 
 defmodule About_testing do
@@ -10,7 +11,7 @@ defmodule About_testing do
         assert __?
     end
 
-    think "When reality lie, we shall refute truth" do
+    think "When reality lies, we shall refute truth" do
         refute __?
     end
 

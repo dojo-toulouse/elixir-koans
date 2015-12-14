@@ -211,8 +211,8 @@ defmodule About_Enums do
   think "partitioning" do
     numbers = 1..10
     { left, right } = Enum.partition(numbers, fn(x) -> rem(x, 2) == 1 end)
-    assert left == _?
-    assert right == _?
+    assert left == __?
+    assert right == __?
   end
 
   think "reduction" do

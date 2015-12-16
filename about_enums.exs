@@ -73,7 +73,7 @@ defmodule About_Enums do
   end
 
   think "fetch! will raise an exception if it can't find an element" do
-    list [:a, :b, :c]
+    list = [:a, :b, :c]
     assert_raise __?, Enum.fetch!(list, 4)
   end
 
@@ -199,7 +199,7 @@ defmodule About_Enums do
   end
 
   think "what's the minimum value in this list?" do
-    list [6, 1, 5, 2, 4, 3]
+    list = [6, 1, 5, 2, 4, 3]
     assert Enum.min(list) == __?
   end
 

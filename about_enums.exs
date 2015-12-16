@@ -179,7 +179,7 @@ defmodule About_Enums do
 
   think "map reduce" do
     list = [4, 5, 6]
-    assert Enum.map_reduce(list, fn (x, acc) -> { x * 2, x + acc } == __?
+    assert Enum.map_reduce(list, fn (x, acc) -> x * 2; x + acc end) == __?
   end
 
   think "zipping" do

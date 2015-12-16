@@ -74,7 +74,7 @@ defmodule About_Enums do
 
   think "fetch! will raise an exception if it can't find an element" do
     list = [:a, :b, :c]
-    assert_raise __?, Enum.fetch!(list, 4)
+    assert_raise __?, fn -> Enum.fetch!(list, 4) end
   end
 
   think "find the first element which matches" do

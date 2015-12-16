@@ -94,7 +94,7 @@ defmodule About_Enums do
 
   think "what index is this number at?" do
     list = [1, 2, 3]
-    assert Enum.find_index(list, 2) == __?
+    assert Enum.find_index(list, &(&1 == 2)) == __?
   end
 
   think "finding and manipulating a value" do

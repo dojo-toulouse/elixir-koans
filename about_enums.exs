@@ -266,7 +266,7 @@ defmodule About_Enums do
 
   think "splitting while function is true" do
     numbers = 1..10
-    { left, right} = Enum.split(numbers, fn (x) -> x < 5 end)
+    { left, right} = Enum.split_while(numbers, fn (x) -> x < 5 end)
     assert left == __?
     assert right == __?
   end

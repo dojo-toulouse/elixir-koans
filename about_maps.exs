@@ -37,8 +37,8 @@ defmodule About_Maps do
 
   think "you can ask a map if it has a key" do
     map = %{name: "Ryan", age: 27}
-    assert Map.has_key?(:name), __?
-    assert Map.has_key?(:likes)
+    assert Map.has_key?(map, :name) == __?
+    assert Map.has_key?(map, :likes) == __?
   end
 
   think "fetching a key works if the key exists..." do

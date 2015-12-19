@@ -53,7 +53,7 @@ defmodule About_Maps do
 
   think "you can also pop a key" do
     map = %{amount: 10}
-    { value, map } = Map.pop(map, :amount)
+    {value, map} = Map.pop(map, :amount)
     assert value == __?
     assert map == __?
   end

@@ -210,7 +210,7 @@ defmodule About_Enums do
 
   think "partitioning" do
     numbers = 1..10
-    { left, right } = Enum.partition(numbers, fn(x) -> rem(x, 2) == 1 end)
+    {left, right} = Enum.partition(numbers, fn(x) -> rem(x, 2) == 1 end)
     assert left == __?
     assert right == __?
   end
@@ -259,14 +259,14 @@ defmodule About_Enums do
 
   think "splitting" do
     numbers = [1, 2, 3, 4]
-    { left, right } = Enum.split(numbers, 2)
+    {left, right} = Enum.split(numbers, 2)
     assert left == __?
     assert right == __?
   end
 
   think "splitting while function is true" do
     numbers = 1..10
-    { left, right} = Enum.split_while(numbers, fn (x) -> x < 5 end)
+    {left, right} = Enum.split_while(numbers, fn (x) -> x < 5 end)
     assert left == __?
     assert right == __?
   end

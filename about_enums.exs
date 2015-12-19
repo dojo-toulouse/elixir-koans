@@ -216,7 +216,7 @@ defmodule About_Enums do
   end
 
   think "reduction" do
-    numbers == 1..10
+    numbers = 1..10
     result = Enum.reduce(numbers, 0, fn (x, acc) -> acc + x end)
     assert result == __?
   end

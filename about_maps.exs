@@ -75,7 +75,7 @@ defmodule About_Maps do
     map_1 = %{today: 10, yesterday: 20}
     map_2 = %{today: 20, yesterday: 5}
 
-    assert Map.merge(map_1, map_2, fn (_k, v1, v2) -> v1 + v2 end)
+    assert Map.merge(map_1, map_2, fn (_k, v1, v2) -> v1 + v2 end) == __?
   end
 
   think "dropping a key" do

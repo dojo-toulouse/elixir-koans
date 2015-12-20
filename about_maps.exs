@@ -109,6 +109,6 @@ defmodule About_Maps do
   think "adding keys that don't exist may not be desirable" do
     map = %{amount: 10}
     assert Map.update!(map, :amount, fn (x) -> x + 1 end) == __?
-    assert_raise __?, Map.update!(map, :other_amount, fn (x) -> x + 1 end)
+    assert_raise __?, fn -> Map.update!(map, :other_amount, fn (x) -> x + 1 end) end
   end
 end

@@ -7,24 +7,24 @@ defmodule About_Anonymous_Functions do
     use Koans
 
     think "Declaring an anonymous function referenced by a_variable" do
-        a_variable = fn -> "Here the body anonymous function !" end
-        # and now execute it !
-        assert_? a_variable.() == "Here the body anonymous function !"
+        a_variable = fn -> "Here the body anonymous function!" end
+        # and now execute it!
+        assert_? a_variable.() == "Here the body anonymous function!"
     end
 
     think "Anonymous function and parameter" do
-        a_variable = fn(name) -> "Hello #{name} !" end
+        a_variable = fn(name) -> "Hello #{name}!" end
 
         assert a_variable.("John") == __?
     end
 
     think "Anonymous functions in a concise way" do
-        a_variable = &("Hello #{&1} !")
+        a_variable = &("Hello #{&1}!")
 
        assert a_variable.("John") == __?
     end
 
-    think "Anonymous function with multiple implementation body ! Amazing matching power !" do
+    think "Anonymous function with multiple implementation body! Amazing matching power!" do
         a_variable = fn
                        "first body" -> "Running body 1"
                        "second body" -> "Running body 2"
@@ -45,7 +45,7 @@ defmodule About_Anonymous_Functions do
     end
 
 
-    think "It's possible to pass a function in argument of function !" do
+    think "It's possible to pass a function in argument of function!" do
       add_five_function = fn(value) -> 5 + value end
       add_ten_after_call_add_five_function = fn(function, value) -> function.(value) + 10 end
 

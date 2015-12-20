@@ -80,7 +80,7 @@ defmodule About_Maps do
 
   think "dropping a key" do
     map = %{name: "Ryan", age: 27}
-    assert Map.drop(map, :age) == __?
+    assert Map.drop(map, [:age]) == __?
   end
 
   think "there's more than one way to remove a key" do

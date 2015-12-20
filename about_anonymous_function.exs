@@ -18,7 +18,7 @@ defmodule About_Anonymous_Functions do
         assert a_variable.("John") == __?
     end
 
-    think "Existing a short cut to declare anonymous function" do
+    think "Anonymous functions in a concise way" do
         a_variable = &("Hello #{&1} !")
 
        assert a_variable.("John") == __?

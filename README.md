@@ -9,11 +9,16 @@ Install
   $ git clone git@github.com:dojo-toulouse/elixir-koans.git
   $ cd elixir-koans
 ```
+Get deps
+
+```bash
+  $ mix deps.get
+```
 
 Compile
 
 ```bash
-  $ elixirc utils/Koans.ex
+  $ mix compile
 ```
 
 Launch
@@ -22,22 +27,18 @@ Launch
 **You can safely ignore warnings**
 
 ```bash
-  $ elixir path_to_enlightenment.exs
+  $ mix test
 ```
 
 or
 
-```bash
-  $ path_to_enlightenment.exs
-```
-
-To medidate on a single theme, run:
-```bash
-  $ elixir about_*.exs
-```
-
-or
+Launch with reload
 
 ```bash
-  $ about_*.exs
+ $ mix test.watch
+
 ```
+
+Note: On Linux you may need to install [inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki#getting-inotify-tools) for test.watch task.
+
+[Advanced `mix test` options] (http://elixir-lang.org/docs/v1.0/mix/Mix.Tasks.Test.html)

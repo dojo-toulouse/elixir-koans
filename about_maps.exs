@@ -37,8 +37,8 @@ defmodule About_Maps do
 
   think "you can ask a map if it has a key" do
     map = %{name: "Ryan", age: 27}
-    assert Map.has_key?(:name), __?
-    assert Map.has_key?(:likes)
+    assert Map.has_key?(map, :name) == __?
+    assert Map.has_key?(map, :likes) == __?
   end
 
   think "fetching a key works if the key exists..." do
@@ -53,7 +53,7 @@ defmodule About_Maps do
 
   think "you can also pop a key" do
     map = %{amount: 10}
-    { value, map } = Map.pop(map, :amount)
+    {value, map} = Map.pop(map, :amount)
     assert value == __?
     assert map == __?
   end
@@ -75,12 +75,12 @@ defmodule About_Maps do
     map_1 = %{today: 10, yesterday: 20}
     map_2 = %{today: 20, yesterday: 5}
 
-    assert Map.merge(map_1, map_2, fn (_k, v1, v2) -> v1 + v2 end)
+    assert Map.merge(map_1, map_2, fn (_k, v1, v2) -> v1 + v2 end) == __?
   end
 
   think "dropping a key" do
     map = %{name: "Ryan", age: 27}
-    assert Map.drop(map, :age) == __?
+    assert Map.drop(map, [:age]) == __?
   end
 
   think "there's more than one way to remove a key" do
@@ -109,6 +109,6 @@ defmodule About_Maps do
   think "adding keys that don't exist may not be desirable" do
     map = %{amount: 10}
     assert Map.update!(map, :amount, fn (x) -> x + 1 end) == __?
-    assert_raise __?, Map.update!(map, :other_amount, fn (x) -> x + 1 end)
+    assert_raise __?, fn -> Map.update!(map, :other_amount, fn (x) -> x + 1 end) end
   end
 end

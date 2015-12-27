@@ -73,8 +73,8 @@ defmodule About_Enums do
   end
 
   think "fetch! will raise an exception if it can't find an element" do
-    list [:a, :b, :c]
-    assert_raise __?, Enum.fetch!(list, 4)
+    list = [:a, :b, :c]
+    assert_raise __?, fn -> Enum.fetch!(list, 4) end
   end
 
   think "find the first element which matches" do
@@ -94,7 +94,7 @@ defmodule About_Enums do
 
   think "what index is this number at?" do
     list = [1, 2, 3]
-    assert Enum.find_index(list, 2) == __?
+    assert Enum.find_index(list, fn(x) -> x == 2 end) == __?
   end
 
   think "finding and manipulating a value" do
@@ -179,7 +179,7 @@ defmodule About_Enums do
 
   think "map reduce" do
     list = [4, 5, 6]
-    assert Enum.map_reduce(list, fn (x, acc) -> { x * 2, x + acc }end) == __?
+    assert Enum.map_reduce(list, 0, fn (x, acc) -> {x * 2, x + acc} end) == __?
   end
 
   think "zipping" do
@@ -199,7 +199,7 @@ defmodule About_Enums do
   end
 
   think "what's the minimum value in this list?" do
-    list [6, 1, 5, 2, 4, 3]
+    list = [6, 1, 5, 2, 4, 3]
     assert Enum.min(list) == __?
   end
 
@@ -210,13 +210,13 @@ defmodule About_Enums do
 
   think "partitioning" do
     numbers = 1..10
-    { left, right } = Enum.partition(numbers, fn(x) -> rem(x, 2) == 1 end)
+    {left, right} = Enum.partition(numbers, fn(x) -> rem(x, 2) == 1 end)
     assert left == __?
     assert right == __?
   end
 
   think "reduction" do
-    numbers == 1..10
+    numbers = 1..10
     result = Enum.reduce(numbers, 0, fn (x, acc) -> acc + x end)
     assert result == __?
   end
@@ -259,14 +259,14 @@ defmodule About_Enums do
 
   think "splitting" do
     numbers = [1, 2, 3, 4]
-    { left, right } = Enum.split(numbers, 2)
+    {left, right} = Enum.split(numbers, 2)
     assert left == __?
     assert right == __?
   end
 
   think "splitting while function is true" do
     numbers = 1..10
-    { left, right} = Enum.split(numbers, fn (x) -> x < 5 end)
+    {left, right} = Enum.split_while(numbers, fn (x) -> x < 5 end)
     assert left == __?
     assert right == __?
   end

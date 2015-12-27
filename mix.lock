@@ -1,0 +1,2 @@
+%{"fs": {:hex, :fs, "0.9.2"},
+  "mix_test_watch": {:hex, :mix_test_watch, "0.2.4"}}

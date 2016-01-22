@@ -39,17 +39,17 @@ defmodule About_Strings do
 
   think "accessing letters by their positions" do
     a_string = "Hello world!"
-    assert String.at(a_string, 2), __?
-    assert String.at(a_string, 20), __?
+    assert String.at(a_string, 2) == __?
+    assert String.at(a_string, 20) == __?
   end
 
   think "slicing a string" do
     a_string = "Hello world!"
-    assert String.slice(a_string, 6, 5), __?
-    assert String.slice(a_string, -3, 6), __?
-    assert String.slice(a_string, 20, 5), __?
-    assert String.slice(a_string, 4, 0), __?
-    assert String.slice(a_string, 0..5), __?
+    assert String.slice(a_string, 6, 5) == __?
+    assert String.slice(a_string, -3, 6) == __?
+    assert String.slice(a_string, 20, 5) == __?
+    assert String.slice(a_string, 4, 0) == __?
+    assert String.slice(a_string, 0..5) == __?
   end
 
   think "capitalization" do

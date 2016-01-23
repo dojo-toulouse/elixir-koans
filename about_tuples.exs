@@ -67,7 +67,7 @@ defmodule About_Tuples do
         # Note: unquote is the reverse of quote
         # It gives a block from its representation
         unquoted_block = unquote {:"{}", [], [1, 2, 3]}
-        # Note: it's an hungarian notation
+        # Note: it's a hungarian notation
         # the atom :"{}" represent the function
         # the list [] contains metadatas like the line and module where code is defined
         # the list [1, 2, 3] are arguments passed to the function

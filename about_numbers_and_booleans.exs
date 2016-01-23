@@ -19,7 +19,7 @@ defmodule About_Numbers_and_booleans do
         assert_? is_integer(a_float)
     end
 
-    think "Is an hexadecimal number treated as an integer" do
+    think "Is a hexadecimal number treated as an integer" do
         assert_? is_integer(0x2A)
     end
 

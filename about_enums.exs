@@ -178,7 +178,7 @@ defmodule About_Enums do
   end
 
   think "map reduce" do
-    list = [4, 5, 6]
+    list = [2, 3, 4]
     assert Enum.map_reduce(list, 0, fn (x, acc) -> {x * 2, x + acc} end) == __?
   end
 
@@ -272,11 +272,16 @@ defmodule About_Enums do
   end
 
   think "taking some items" do
-    numbers = 1..10
+    numbers = 1..5
     assert Enum.take(numbers, 2) == __?
   end
 
   think "taking some items the other way" do
+    numbers = 1..5
+    assert Enum.take(numbers, -2) == __?
+  end
+
+  think "taking some items the other way is not always as expected" do
     numbers = 1..10
     assert Enum.take(numbers, -2) == __?
   end

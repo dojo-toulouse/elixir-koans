@@ -59,9 +59,9 @@ defmodule About_Numbers_and_booleans do
     end
 
     think "Comparing two values considering type" do
-        an_integer = 4.0
+        another_float = 4.0
         a_float = 4.0
-        assert_? an_integer === a_float
+        assert_? another_float === a_float
     end
 
     think "Are booleans integers ?" do
